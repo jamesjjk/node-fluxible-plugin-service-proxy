@@ -1,5 +1,5 @@
 {
-  "name": "fluxible-service-proxy",
+  "name": "fluxible-plugin-service-proxy",
   "description": "Fluxible plugin for registering services with different implementations on the server and the client.",
   "keywords": [
     "React",
@@ -7,17 +7,17 @@
     "Fluxible",
     "Isomorphic"
   ],
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "Jason Walton <dev@lucid.thedreaming.org> (https://github.com/jwalton)",
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://raw.github.com/benbria/fluxible-service-proxy/master/LICENSE"
+      "url": "https://raw.github.com/benbria/node-fluxible-plugin-service-proxy/master/LICENSE"
     }
   ],
   "main": "./index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/benbria/fluxible-service-proxy"
+    "url": "https://github.com/benbria/node-fluxible-plugin-service-proxy"
   }
 }

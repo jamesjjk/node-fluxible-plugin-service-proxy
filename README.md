@@ -2,7 +2,7 @@ Fluxible plugin for registering services with different implementations on the s
 
 ## Description
 
-fluxible-service-proxy is a [fluxible](http://fluxible.io/) plugin which allows you to register
+fluxible-plugin-service-proxy is a [fluxible](http://fluxible.io/) plugin which allows you to register
 "services" to use in actions, where services can have a different implementation on the client and
 on the server.
 
@@ -12,13 +12,13 @@ wish to call on the client side, or if you have some unusual use case.
 
 ## Installation
 
-    npm install --save fluxible-service-proxy
+    npm install --save fluxible-plugin-service-proxy
 
 ## Usage
 
 To use, when defining your app:
 
-    var serviceProxyPlugin = require('fluxible-service-proxy');
+    var serviceProxyPlugin = require('fluxible-plugin-service-proxy');
     var app = new Fluxible({...});
     app.plug(serviceProxyPlugin());
 
@@ -36,6 +36,9 @@ And on the client:
 
 Finally, in your actions you can do:
 
-    context.getServiceProxy('whereAmI').run()
+    context.getService('whereAmI').run()
 
 and this will call the appropriate implementation.
+
+Note if you have some other plugin which creates `getService(name)`, so long as the other plugin
+is created first, this will call into the other plugin if `name` can't be resolved.

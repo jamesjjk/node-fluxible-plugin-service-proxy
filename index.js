@@ -15,8 +15,24 @@ module.exports = fluxibleServiceProxy = function() {
         plugContext: function (options) {
             return {
                 plugActionContext: function (actionContext) {
+                    // 1.0 API
+                    var oldGetServiceProxy = actionContext.getServiceProxy;
                     actionContext.getServiceProxy = function (name) {
-                        return services[name];
+                        var answer = services[name];
+                        if(!answer && oldGetServiceProxy) {
+                            answer = oldGetServiceProxy(name);
+                        }
+                        return answer;
+                    }
+
+                    // 1.1 API
+                    var oldGetService = actionContext.getService;
+                    actionContext.getService = function (name) {
+                        var answer = services[name];
+                        if(!answer && oldGetService) {
+                            answer = oldGetService(name);
+                        }
+                        return answer;
                     }
                 }
             }
