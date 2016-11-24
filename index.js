@@ -12,7 +12,7 @@ module.exports = fluxibleServiceProxy = function() {
          *
          * `options` is the options passed to `flux.createContext(options)`.
          */
-        plugContext: function (options) {
+        plugContext: function (options, context) {
             return {
                 plugActionContext: function (actionContext) {
                     // 1.0 API
