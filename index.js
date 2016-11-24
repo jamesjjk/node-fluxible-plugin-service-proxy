@@ -22,6 +22,7 @@ module.exports = fluxibleServiceProxy = function() {
                         if(!answer && oldGetServiceProxy) {
                             answer = oldGetServiceProxy(name);
                         }
+                        answer.context = context;
                         return answer;
                     }
 
@@ -32,6 +33,7 @@ module.exports = fluxibleServiceProxy = function() {
                         if(!answer && oldGetService) {
                             answer = oldGetService(name);
                         }
+                        answer.context = context;
                         return answer;
                     }
                 }
